@@ -97,7 +97,7 @@ public class ATCommandXMLGenerator {
 
 					// class comment
 					Comment classComment = document.createComment(
-							"//TODO Auto-generated XML - Set class name [TEST, READ, WRITE, EXECUTION] Set class prefix and parser");
+							"//TODO Auto-generated XML - Set class name [TEST, READ, WRITE, EXECUTION] Set class prefix, parser and optional if exists");
 					type.appendChild(classComment);
 
 					// empty class element
@@ -106,6 +106,7 @@ public class ATCommandXMLGenerator {
 					emptyClass.setAttribute("name", "");
 					emptyClass.setAttribute("prefix", "");
 					emptyClass.setAttribute("parser", "");
+					emptyClass.setAttribute("optional", "true");
 
 					// class element with order
 					Element fullClass = document.createElement("class");
@@ -194,7 +195,7 @@ public class ATCommandXMLGenerator {
 	 * 
 	 * @param commandType
 	 *            command type
-	 *            
+	 * 
 	 * @return parameter names as array
 	 * 
 	 */
