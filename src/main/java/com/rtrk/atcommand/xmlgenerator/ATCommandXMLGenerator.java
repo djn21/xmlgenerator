@@ -97,7 +97,7 @@ public class ATCommandXMLGenerator {
 
 					// class comment
 					Comment classComment = document.createComment(
-							"//TODO Auto-generated XML - Set class name [TEST, READ, WRITE, EXECUTION] Set class prefix, parser and optional if exists");
+							"//TODO Auto-generated XML - Set class name [TEST, READ, WRITE, EXECUTION] Set class prefix, parser class and optional if exists");
 					type.appendChild(classComment);
 
 					// empty class element
@@ -167,9 +167,9 @@ public class ATCommandXMLGenerator {
 
 						// set true and false comment
 						Comment trueComment = document
-								.createComment("// TODO Auto-generated XML - Set true value if exists");
+								.createComment("// TODO Auto-generated XML - Set true value [default = 1]");
 						Comment falseComment = document
-								.createComment("// TODO Auto-generated XML - Set false value if exists");
+								.createComment("// TODO Auto-generated XML - Set false value [default = 0]");
 						trueElement.appendChild(trueComment);
 						falseElement.appendChild(falseComment);
 					}
