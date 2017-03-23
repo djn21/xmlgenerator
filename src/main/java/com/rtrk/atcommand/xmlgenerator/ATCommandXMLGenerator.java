@@ -47,11 +47,11 @@ public class ATCommandXMLGenerator {
 	 *            Path of .xml file.
 	 * 
 	 */
-	public static void generateXML(String inputFilePath, String outputFilePath) {
+	public static void main(String[] args) {
 		try {
-
-			ATCommandXMLGenerator.inputFliePath = inputFilePath;
-			ATCommandXMLGenerator.outputFilePath = outputFilePath;
+			
+			ATCommandXMLGenerator.inputFliePath = args[0];
+			ATCommandXMLGenerator.outputFilePath = args[1];
 
 			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
