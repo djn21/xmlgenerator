@@ -49,7 +49,7 @@ public class ATCommandXMLGenerator {
 	 */
 	public static void main(String[] args) {
 		try {
-			
+
 			ATCommandXMLGenerator.inputFliePath = args[0];
 			ATCommandXMLGenerator.outputFilePath = args[1];
 
@@ -142,9 +142,8 @@ public class ATCommandXMLGenerator {
 					param.setAttribute("environmet", "true");
 					firstOrder.appendChild(param);
 
-					// set first and second param
 					if (i == 0) {
-
+						// set min and max values
 						Element minElement = document.createElement("min");
 						Element maxElement = document.createElement("max");
 						param.appendChild(minElement);
@@ -159,7 +158,7 @@ public class ATCommandXMLGenerator {
 						maxElement.appendChild(maxComment);
 					}
 					if (i == 1) {
-
+						// set true and false values
 						Element trueElement = document.createElement("true");
 						Element falseElement = document.createElement("false");
 						param.appendChild(trueElement);
@@ -172,6 +171,16 @@ public class ATCommandXMLGenerator {
 								.createComment("// TODO Auto-generated XML - Set false value [default = 0]");
 						trueElement.appendChild(trueComment);
 						falseElement.appendChild(falseComment);
+					}
+					if (i == 2) {
+						// set pattern value
+						Element patternElement = document.createElement("pattern");
+						param.appendChild(patternElement);
+
+						// set pattern comment
+						Comment patternComment = document
+								.createComment("// TODO Auto-generated XML - Set pattern if exists");
+						patternElement.appendChild(patternComment);
 					}
 				}
 
