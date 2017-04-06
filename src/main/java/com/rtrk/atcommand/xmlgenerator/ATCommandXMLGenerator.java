@@ -25,7 +25,7 @@ import org.w3c.dom.Element;
 /**
  * 
  * Utility class for generating .xml file from .proto file. The class contains
- * static method generateXML for creating .xml file which contains description
+ * main method for creating .xml file which contains description
  * of AT Command defined in .proto file.
  * 
  * @author djekanovic
@@ -216,7 +216,7 @@ public class ATCommandXMLGenerator {
 
 			String line;
 
-			// skip until message ???Command {
+			// skip until message <commandType>Command {
 			while (!reader.readLine().equalsIgnoreCase("message " + commandType + " {"))
 				;
 
