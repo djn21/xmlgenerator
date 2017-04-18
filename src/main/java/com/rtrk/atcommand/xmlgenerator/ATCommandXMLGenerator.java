@@ -25,7 +25,7 @@ import org.w3c.dom.Element;
 /**
  * 
  * Utility class for generating .xml file from .proto file. The class contains
- * static method generateXML for creating .xml file which contains description
+ * main method for creating .xml file which contains description
  * of AT Command defined in .proto file.
  * 
  * @author djekanovic
@@ -47,11 +47,11 @@ public class ATCommandXMLGenerator {
 	 *            Path of .xml file.
 	 * 
 	 */
-	public static void generateXML(String inputFilePath, String outputFilePath) {
+	public static void main(String[] args) {
 		try {
 
-			ATCommandXMLGenerator.inputFliePath = inputFilePath;
-			ATCommandXMLGenerator.outputFilePath = outputFilePath;
+			ATCommandXMLGenerator.inputFliePath = args[0];
+			ATCommandXMLGenerator.outputFilePath = args[1];
 
 			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -142,9 +142,8 @@ public class ATCommandXMLGenerator {
 					param.setAttribute("environmet", "true");
 					firstOrder.appendChild(param);
 
-					// set first and second param
 					if (i == 0) {
-
+						// set min and max values
 						Element minElement = document.createElement("min");
 						Element maxElement = document.createElement("max");
 						param.appendChild(minElement);
@@ -159,7 +158,7 @@ public class ATCommandXMLGenerator {
 						maxElement.appendChild(maxComment);
 					}
 					if (i == 1) {
-
+						// set true and false values
 						Element trueElement = document.createElement("true");
 						Element falseElement = document.createElement("false");
 						param.appendChild(trueElement);
@@ -172,6 +171,16 @@ public class ATCommandXMLGenerator {
 								.createComment("// TODO Auto-generated XML - Set false value [default = 0]");
 						trueElement.appendChild(trueComment);
 						falseElement.appendChild(falseComment);
+					}
+					if (i == 2) {
+						// set pattern value
+						Element patternElement = document.createElement("pattern");
+						param.appendChild(patternElement);
+
+						// set pattern comment
+						Comment patternComment = document
+								.createComment("// TODO Auto-generated XML - Set pattern if exists");
+						patternElement.appendChild(patternComment);
 					}
 				}
 
@@ -207,7 +216,7 @@ public class ATCommandXMLGenerator {
 
 			String line;
 
-			// skip until message ???Command {
+			// skip until message <commandType>Command {
 			while (!reader.readLine().equalsIgnoreCase("message " + commandType + " {"))
 				;
 
