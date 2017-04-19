@@ -25,8 +25,8 @@ import org.w3c.dom.Element;
 /**
  * 
  * Utility class for generating .xml file from .proto file. The class contains
- * main method for creating .xml file which contains description
- * of AT Command defined in .proto file.
+ * main method for creating .xml file which contains description of AT Command
+ * defined in .proto file.
  * 
  * @author djekanovic
  * 
@@ -40,11 +40,10 @@ public class ATCommandXMLGenerator {
 	 * 
 	 * Generating .xml file from .proto file
 	 * 
-	 * @param inputFilePath
-	 *            Path of .proto file.
+	 * @param args
+	 *            First argunemt - inputFilePath Path of .proto file.
 	 * 
-	 * @param outputFilePath
-	 *            Path of .xml file.
+	 *            Second argument - outputFilePath Path of .xml file.
 	 * 
 	 */
 	public static void main(String[] args) {
